@@ -3,7 +3,7 @@
 Za pokretanje frontend-a aplikacije:
 1. Neophodno je instalirati npm (Node Package Manager) i Node.js. 
 2. Pozicionirati se u folderu frontend/cookbook u okviru projekta i povuci sve zavisnosti komandom `npm install`. 
-3. Instalirati angular cli komandom `npm install -g @angular/cli@6.14.15`.
+3. Instalirati angular cli komandom `npm install -g @angular/cli@13.1.4`.
 4. Potom je moguce aplikaciju pokrenuti komandom `ng serve`.
 
 Za pokretanje beckend-a aplikacije trebalo bi koristiti IntelliJ. 
