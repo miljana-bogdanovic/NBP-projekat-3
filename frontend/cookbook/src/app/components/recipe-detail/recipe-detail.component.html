@@ -1,0 +1,129 @@
+<mat-card class="shadow rounded-lg p-0 mt-4" *ngIf="recipe">
+  <mat-card-title class="text-right p-2">
+    <span (click)="close()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="currentColor"
+        class="bi bi-x-circle"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+        />
+        <path
+          d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+        />
+      </svg>
+    </span>
+  </mat-card-title>
+  <mat-card-title class="text-center">
+    <img
+      [src]="recipe.photo"
+      alt=""
+      class="img-fluid rounded-circle my-2"
+    />
+  </mat-card-title>
+  <mat-card-title class="text-center my-3">
+    {{ recipe.name }}
+  </mat-card-title>
+  <mat-card-subtitle class="text-center my-3">
+    {{ recipe.category }} |
+    {{ recipe.author }}
+  </mat-card-subtitle>
+  <div *ngIf="recipe.ingredients.length > 0">
+    <h3 class="text-center">Ingredients</h3>
+    <mat-card-subtitle class="text-center my-3">
+      <div *ngFor="let ingridient of recipe.ingredients">
+        {{ ingridient.name }} : {{ ingridient.amount }} {{ ingridient.unit }}
+      </div>
+    </mat-card-subtitle>
+  </div>
+  <mat-card-content class="text-center">
+    <div class="">
+      <p class="card-content">{{ recipe.description }}</p>
+    </div>
+  </mat-card-content>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Reviews </mat-panel-title>
+      <mat-panel-description>See recipe reviews </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="text-center justify-content-between align-items-center mt-3">
+      <div>
+        <div *ngFor="let review of this.reviews; let i = index" clas="row">
+          <mat-card-content class="my-2">
+            {{ review.grade }}
+            <span class="star">
+              <svg
+                class="star"
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-star-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                />
+              </svg>
+            </span>
+            : {{ review.content }} 
+          </mat-card-content>
+        </div>
+      </div>
+      <div *ngIf="this.reviews.length === 0">
+        <mat-card-content> No reviews yet! </mat-card-content>
+        <mat-card-content *ngIf="!mine"> Click to add new! </mat-card-content>
+      </div>
+    </div>
+    <div class="row justify-content-center" *ngIf="!mine">
+      <button class="btn btn-primary mr-1 my-1" (click)="onClickAddReview()">
+        Add review
+      </button>
+    </div>
+  </mat-expansion-panel>
+  <div class="row justify-content-center align-items-center" *ngIf="mine">
+    <div class="col-xs-12">
+      <button
+        class="btn btn-info mr-1"
+        (click)="onClickIzmeni()"
+        style="margin-bottom: 5%"
+      >
+        Update recipe
+      </button>
+    </div>
+    <div class="col-xs-12">
+      <button
+        class="btn btn-danger mr-1"
+        (click)="onClickIzbrisi()"
+        style="margin-bottom: 5%"
+      >
+        Delete recipe
+      </button>
+    </div>
+  </div>
+
+  <div class="row justify-content-center align-items-center" *ngIf="!mine">
+    <div class="col-xs-12" *ngIf="!add">
+      <button
+        class="btn btn-info mr-1"
+        (click)="onClickFavourite()"
+        style="margin-bottom: 5%"
+      >
+        Add to favourites
+      </button>
+    </div>
+    <div class="col-xs-12" *ngIf="add">
+      <button
+        class="btn btn-info mr-1"
+        (click)="onClickNotFavourite()"
+        style="margin-bottom: 5%"
+      >
+        Remove from favourites
+      </button>
+    </div>
+  </div>
+</mat-card>

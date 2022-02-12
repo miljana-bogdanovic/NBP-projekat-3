@@ -1,0 +1,18 @@
+img {
+  width: 150px;
+  height: 150px;
+}
+mat-card,
+mat-expansion-panel {
+  border: 1px solid #c4c6ca;
+  background: linear-gradient(155deg, #fdf5ee, #bcbdc0);
+  cursor: pointer;
+  margin: 1em;
+}
+mat-card-subtitle {
+  color: #000814;
+  font-size: 1.1rem;
+}
+.star {
+  color: #ee9b00;
+}

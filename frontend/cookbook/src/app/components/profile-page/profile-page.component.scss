@@ -1,0 +1,19 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1em;
+  }
+
+  .category{
+      width:40%;
+  }
+
+  mat-card-subtitle {
+    color: #000814;
+    font-size: 1.1rem;
+  }
+  .star {
+    color: #ee9b00;
+  }
+  

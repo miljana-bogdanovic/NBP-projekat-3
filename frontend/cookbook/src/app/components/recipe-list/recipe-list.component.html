@@ -1,0 +1,29 @@
+
+<div class="row">
+  <div
+    class="col-lg-6 col-xs-12"
+    [ngClass]="showRecipe ? 'col-lg-6' : 'col-lg-12'"
+  >
+    <div
+      [ngClass]="showRecipe ? 'column' : 'row'"
+      class="justify-content-center align-items-center"
+    >
+      <cookbook-recipe-item
+        *ngFor="let recipe of recipes | async "
+        class="col-lg-4 col-sm-6 my-1"
+        [recipe]="recipe"
+        (recipeSelected)="onDetailsClick($event)"
+      ></cookbook-recipe-item>
+    </div>
+  </div>
+  <div class="col-lg-6 col-xs-12" *ngIf="showRecipe">
+    <cookbook-recipe-detail
+    [mine]="mine"
+      [recipe]="recipe | async"
+      (closeRecipe)="onCloseClick($event)"
+      (removeFav)="onRemoveFav($event)"
+      [inFav]="this.inFav"
+    >
+    </cookbook-recipe-detail>
+  </div>
+</div>

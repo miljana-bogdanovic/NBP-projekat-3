@@ -1,0 +1,26 @@
+img {
+  width: 150px;
+  height: 150px;
+}
+mat-card {
+  border: 1px solid #c4c6ca;
+  background: linear-gradient(155deg, #f2e2d3, #acbac4);
+  cursor: pointer;
+  margin: 1em;
+}
+mat-card-subtitle {
+  color: #000814;
+  font-size: 1.1rem;
+}
+mat-card-content {
+  color: #555c61;
+}
+mat-card:hover {
+  background-color: #dee2e6;
+}
+mat-card:hover mat-card-subtitle {
+  color: #023949;
+}
+mat-card:hover mat-card-content {
+  color: black;
+}
